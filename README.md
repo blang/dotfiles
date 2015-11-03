@@ -32,7 +32,7 @@ git submodule add https://github.com/zsh-users/zsh-syntax-highlighting.git
 
 Update:
 ```
-git submodule update
+git submodule update --init --recursive
 ```
 
 License
