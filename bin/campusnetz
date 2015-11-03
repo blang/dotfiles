@@ -1,0 +1,1 @@
+sudo openvpn --ping 60 --cd $HOME/.openvpn --config stud-${1}.ovpn

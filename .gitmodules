@@ -1,0 +1,27 @@
+[submodule "fonts/powerline-fonts"]
+	path = fonts/powerline-fonts
+	url = https://github.com/powerline/fonts.git
+[submodule "vim/vim.symlink/bundle/ctrlp.vim"]
+	path = vim/vim.symlink/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/vim.symlink/bundle/nerdtree"]
+	path = vim/vim.symlink/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/vim.symlink/bundle/syntastic"]
+	path = vim/vim.symlink/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/vim.symlink/bundle/tagbar"]
+	path = vim/vim.symlink/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "vim/vim.symlink/bundle/vim-airline"]
+	path = vim/vim.symlink/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
+[submodule "vim/vim.symlink/bundle/vim-go"]
+	path = vim/vim.symlink/bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule "vim/vim.symlink/bundle/YouCompleteMe"]
+	path = vim/vim.symlink/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "zsh/zsh_custom.symlink/plugins/zsh-syntax-highlighting"]
+	path = zsh/zsh_custom.symlink/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

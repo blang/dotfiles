@@ -1,0 +1,216 @@
+""" Set history size - End of file - End of file
+set history=700
+
+""" Enable filetype plugins
+filetype plugin on
+filetype indent on
+
+set autoread "Detect file changes
+
+" set a map leader for more key combos
+let mapleader = ','
+
+" moving up and down work as you would expect
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+
+""" Enable line numbers
+set number
+
+""" Ignore case when searching
+set ignorecase
+set smartcase
+
+""" No search highlight
+set nohlsearch
+
+""" Lazy redraw for performance
+set lazyredraw
+
+""" Highlight matching brackets
+set showmatch
+
+""" Show matching brackets blink
+set mat=2
+
+""" Disable sounds
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+""" Enable syntax highlighting
+syntax enable
+
+""" Colors
+colorscheme molokai
+"let g:rehash256 = 1
+
+" Enable 256 colors
+set t_Co=256
+"let g:molokai_original = 1
+"colorscheme desert
+"set background=dark
+"set background=dark
+
+""" Enable utf8
+set encoding=utf8
+
+""" Unix as standard file type
+set ffs=unix,dos,mac
+
+""" Disable backups and swaps
+set nobackup
+set nowb
+set noswapfile
+
+""" Spaces instead tab
+set expandtab
+set shiftwidth=4
+set tabstop=4
+
+""" Treat long lines as break lines?
+" map j gj
+" map k gk
+
+" Fix backspace
+set backspace=indent,eol,start
+
+" Leave compatible mode
+set nocompatible
+
+""" Search: Space to /
+"map <space> /
+" Hackaround ctrl space
+" inoremap <C-Space> <C-x><C-o>
+" inoremap <C-@> <C-Space>
+map <C-@> ?
+
+""" Return to last edit position after closing file
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
+
+""" Use vimgrep?
+
+"""""" Keybindings
+" Save on CTRL+S
+map <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
+map <C-q> <esc>:q<CR>
+imap <C-q> <esc>:q<CR>
+"map <C-e> <esc>:e<SPACE>
+
+" Close window or tab
+map <C-x> <C-w>c
+
+" Windows
+"" split vertical
+map <C-u> <C-w>v
+"" split horizontal
+map <C-o> <C-w>s
+"" Cycle around
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+"" Copy and Paste
+set clipboard=unnamedplus " Yank into global clipboard (also between instances)
+
+" Tabs
+"map <C-t> <esc>:tabe<SPACE>
+map <C-n> <esc>:tabnew<CR>
+map <C-p> <esc>:tabn<CR>
+
+
+" Package manager
+execute pathogen#infect()
+
+" Go Mappings
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+"au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+"au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+"au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+
+au FileType go nmap <Leader>s <Plug>(go-implements)
+
+au FileType go nmap <Leader>i <Plug>(go-info)
+
+au FileType go nmap <Leader>e <Plug>(go-rename)
+
+" Tagbar
+map <C-t> :TagbarToggle<CR>
+
+"Use goimports
+let g:go_fmt_command = "goimports"
+
+
+" Nerdtree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+map <C-b> :NERDTreeToggle<CR>
+" Auto close nerdtree as last window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Fuzzyfind
+
+nmap <silent> <leader>p :CtrlPBuffer<cr>
+nmap <silent> <leader>o :CtrlP<cr>
+let g:ctrlp_map=''
+let g:ctrlp_dotfiles=1
+let g:ctrlp_working_path_mode = 'ra'
+
+" CtrlP ignore patterns
+let g:ctrlp_custom_ignore = {
+            \ 'dir': '\.git$\|node_modules$\|\.hg$\|\.svn$',
+            \ 'file': '\.exe$\|\.so$'
+            \ }
+
+" search the nearest ancestor that contains .git, .hg, .svn
+let g:ctrlp_working_path_mode = 2 
+
+
+" Vim Go Tagbar
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+" Vim Airline
+" Status always on
+set laststatus=2

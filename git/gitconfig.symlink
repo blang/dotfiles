@@ -1,0 +1,40 @@
+[user]
+    email = github@benediktlang.de
+    name = Benedikt Lang
+
+[alias]
+    co = checkout
+    cleanup = !git remote prune origin && git gc && git clean -df && git stash clear
+    s = status
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = always
+
+[color "diff"]
+    meta = yellow 
+
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim --noplugin
+
+[apply]
+    whitespace = nowarn
+
+[alias]
+    lga = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+[branch]
+    autosetupmerge = true
+    autosetuprebase = always
+[push]
+    default = current
+[rerere]
+    enabled = 1
+[github]
+    user = blang
+[merge]
+    ff = only
