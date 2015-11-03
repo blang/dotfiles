@@ -37,4 +37,5 @@ URxvt.tabbed.secondaryScroll: true
 URxvt.tabbed.font: xft:termsyn:pixelsize=12
 URxvt*inheritPixmap: true 
 URxvt*shading: 30
+URxvt.intensityStyles: false
 URxvt*loginShell: true
