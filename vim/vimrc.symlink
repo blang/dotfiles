@@ -45,8 +45,11 @@ set tm=500
 syntax enable
 
 """ Colors
-colorscheme molokai
-"let g:rehash256 = 1
+" colorscheme molokai
+set background=dark
+colorscheme solarized
+let g:solarized_termcolors=256
+let g:rehash256 = 1
 
 " Enable 256 colors
 set t_Co=256
