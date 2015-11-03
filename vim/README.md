@@ -1,6 +1,12 @@
 VIM Setup
 =========
 
+Vim Go
+------
+```
+:GoInstallBinaries
+```
+
 Go Tags
 -------
 ```
@@ -13,4 +19,11 @@ Init plugins
 Don't forget to init plugins
 ```
 :helptags
+```
+
+Install YCM
+-----------
+Install go before,
+```
+./install_ycm.sh
 ```
