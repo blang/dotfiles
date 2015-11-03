@@ -14,6 +14,8 @@ git clone --recursive https://github.com/blang/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 
+. ~/.zshrc
+
 # Optional
 script/install_golang.sh
 
