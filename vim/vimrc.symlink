@@ -1,3 +1,5 @@
+" Package manager
+execute pathogen#infect()
 """ Set history size - End of file - End of file
 set history=700
 
@@ -123,12 +125,12 @@ set clipboard=unnamedplus " Yank into global clipboard (also between instances)
 
 " Tabs
 "map <C-t> <esc>:tabe<SPACE>
-map <C-n> <esc>:tabnew<CR>
-map <C-p> <esc>:tabn<CR>
+"map <S-Enter> <esc>:tabnew<CR>
+map <C-n> <esc>:tabn<CR>
 
 
 " Package manager
-execute pathogen#infect()
+"execute pathogen#infect()
 
 " Go Mappings
 au FileType go nmap <leader>r <Plug>(go-run)
@@ -160,7 +162,7 @@ let g:go_fmt_command = "goimports"
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-map <C-b> :NERDTreeToggle<CR>
+map <C-p> :NERDTreeToggle<CR>
 " Auto close nerdtree as last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
