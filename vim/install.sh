@@ -21,7 +21,7 @@ if ! [ -d "$GOROOT" ]; then
 fi
 
 cd $DOTFILES/vim/vim.symlink/bundle/YouCompleteMe
-./install.py --gocode-completer
+./install.sh --gocode-completer
 
 echo "# Install gotags"
 go get -u github.com/jstemmer/gotags
