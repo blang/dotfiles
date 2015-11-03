@@ -12,8 +12,13 @@ Make sure you understand everything inside this repo before installation, it mig
 ```
 git clone --recursive https://github.com/blang/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-script/install
 script/bootstrap
+
+# Optional
+script/install_golang.sh
+
+# Install components
+script/install
 ```
 
 Submodules

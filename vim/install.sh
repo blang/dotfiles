@@ -22,3 +22,8 @@ fi
 
 cd $DOTFILES/vim/vim.symlink/bundle/YouCompleteMe
 ./install.py --gocode-completer
+
+echo "# Install gotags"
+go get -u github.com/jstemmer/gotags
+
+echo "# Successfully installed"
