@@ -10,10 +10,22 @@ Install
 Make sure you understand everything inside this repo before installation, it might overwrite important files. Use at your own risk!
 
 ```
-git clone https://github.com/blang/dotfiles.git ~/.dotfiles
+git clone --recursive https://github.com/blang/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/install
 script/bootstrap
+```
+
+Submodules
+----------
+Add a submodule instead of git clone:
+```
+git submodule add https://github.com/zsh-users/zsh-syntax-highlighting.git
+```
+
+Update:
+```
+git submodule update
 ```
 
 License
