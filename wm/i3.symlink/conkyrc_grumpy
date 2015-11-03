@@ -1,0 +1,29 @@
+background        no
+out_to_console 	  yes
+out_to_x	  no
+update_interval	  3
+total_run_times	  0
+short_units	  yes
+pad_percents	  3
+
+override_utf8_locale yes
+
+TEXT
+,[
+#Sound
+{"full_text": " SND ${exec amixer get Master | grep -o "\[.*%\]"} ", "color":"\#268BD2"},
+#Network Up and down
+{"full_text": "[${upspeed enp4s0}/${upspeed wlp3s0}] ", "color":"\#ff0000"},
+{"full_text": "[${downspeed enp4s0}/${downspeed wlp3s0}] ", "color":"\#00fff2"},
+#Memory
+{"full_text": " RAM [$membar] $memperc% ", "color":"\#B58900"},
+#CPU
+{"full_text": " CPU [$cpubar][${freq_g 0}Ghz ${freq_g 1}Ghz ${platform coretemp.0 temp 2}d ${platform coretemp.0 temp 3}d ${cpu cpu0}% ${cpu cpu1}% ", "color":"\#00A9B5"},
+#BAT
+{"full_text": "BAT [${battery_short BAT0}] ", "color":"\#6F3BFF"},
+#Network status
+{"full_text": "${if_up enp4s0}ETH [${addrs enp4s0}]$endif ", "color":"\#ff00f3"},
+{"full_text": "${if_up wlp3s0}WLAN [${addrs wlp3s0} ${wireless_essid wlp3s0} (${wireless_link_qual_perc wlp3s0}%)]$endif ", "color":"\#AFB500"},
+#Time
+{"full_text": " [${time %a %d %b} ${time %H:%M}] ","color": "\#2fdc57"}
+]
