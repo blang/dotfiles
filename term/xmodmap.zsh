@@ -1,0 +1,2 @@
+# Change capslock
+xmodmap ~/.Xmodmap
