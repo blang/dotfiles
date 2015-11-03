@@ -9,7 +9,7 @@
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+#export ZSH=$HOME/.dotfiles
 export DOTFILES=$HOME/.dotfiles
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/code
@@ -24,7 +24,7 @@ fi
 
 # all of our zsh files
 typeset -U config_files
-config_files=($ZSH/*/*.zsh)
+config_files=($DOTFILES/*/*.zsh)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
