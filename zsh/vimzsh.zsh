@@ -11,6 +11,7 @@ bindkey '^N' down-history
 # backspace and ^h working even after
 # returning from command mode
 bindkey '^h' backward-delete-char
+bindkey "^?" backward-delete-char
 
 # ctrl-w removed word backwards
 bindkey '^w' backward-kill-word
