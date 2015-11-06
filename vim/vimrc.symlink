@@ -89,7 +89,7 @@ set nocompatible
 " Hackaround ctrl space
 " inoremap <C-Space> <C-x><C-o>
 " inoremap <C-@> <C-Space>
-map <C-@> ?
+" map <C-@> ?
 
 """ Return to last edit position after closing file
 autocmd BufReadPost *
@@ -219,3 +219,19 @@ let g:tagbar_type_go = {
 " Vim Airline
 " Status always on
 set laststatus=2
+
+" Syntastic defaults
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Disable errors on gofmt, syntastic will do that
+let g:go_fmt_fail_silently = 1
+
+" Use ; as :
+nnoremap ; :
