@@ -28,3 +28,12 @@
 [submodule "vim/vim.symlink/bundle/vim-colors-solarized"]
 	path = vim/vim.symlink/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/vim.symlink/bundle/matchit"]
+	path = vim/vim.symlink/bundle/matchit
+	url = https://github.com/tmhedberg/matchit.git
+[submodule "vim/vim.symlink/bundle/vim-pasta"]
+	path = vim/vim.symlink/bundle/vim-pasta
+	url = https://github.com/sickill/vim-pasta
+[submodule "vim/vim.symlink/bundle/ZoomWin"]
+	path = vim/vim.symlink/bundle/ZoomWin
+	url = https://github.com/regedarek/ZoomWin.git
