@@ -46,3 +46,6 @@
 [submodule "vim/vim.symlink/bundle/vim-numbertoggle"]
 	path = vim/vim.symlink/bundle/vim-numbertoggle
 	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle
+[submodule "vim/vim.symlink/bundle/hardmode"]
+	path = vim/vim.symlink/bundle/hardmode
+	url = https://github.com/wikitopian/hardmode

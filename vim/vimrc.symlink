@@ -240,3 +240,6 @@ nnoremap ; :
 " Disable syntastic on go
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
+" Enable hardmode
+"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
