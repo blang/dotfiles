@@ -10,11 +10,13 @@ filetype indent on
 set autoread "Detect file changes
 
 " set a map leader for more key combos
-let mapleader = ','
-
+nnoremap <SPACE> <Nop>
+map <SPACE> <leader>
+"let mapleader = '\<Space>'
+nmap <Leader>p "+p
 " moving up and down work as you would expect
-nnoremap <silent> j gj
-nnoremap <silent> k gk
+"nnoremap <silent> j gj
+"nnoremap <silent> k gk
 
 """ Enable line numbers
 set number
@@ -26,9 +28,14 @@ set smartcase
 """ No search highlight
 set nohlsearch
 
+" Press F4 to toggle highlighting on/off, and show current value.
+noremap <F4> :set hlsearch! hlsearch?<CR>
+
 """ Lazy redraw for performance
 set lazyredraw
 
+" jj to escape
+imap jj <Esc>
 """ Highlight matching brackets
 set showmatch
 
@@ -235,7 +242,7 @@ let g:syntastic_check_on_wq = 0
 let g:go_fmt_fail_silently = 0
 
 " Use ; as :
-nnoremap ; :
+"nnoremap ; :
 
 " Disable syntastic on go
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
