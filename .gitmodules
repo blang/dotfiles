@@ -58,3 +58,6 @@
 [submodule "vim/vim.symlink/bundle/vim-hardtime"]
 	path = vim/vim.symlink/bundle/vim-hardtime
 	url = https://github.com/takac/vim-hardtime
+[submodule "vim/vim.symlink/bundle/vim-flake8"]
+	path = vim/vim.symlink/bundle/vim-flake8
+	url = https://github.com/nvie/vim-flake8.git
