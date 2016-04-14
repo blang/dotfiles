@@ -26,4 +26,7 @@ cd $DOTFILES/vim/vim.symlink/bundle/YouCompleteMe
 echo "# Install gotags"
 go get -u github.com/jstemmer/gotags
 
+echo "# Install flake8 for python syntax checking"
+pip install flake8
+
 echo "# Successfully installed"
