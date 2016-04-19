@@ -1,1 +1,1 @@
-hash -d UNI=$HOME/Dropbox/uni/ma_inf
+hash -d UNI=$HOME/Tresors/uni/ma_inf/
