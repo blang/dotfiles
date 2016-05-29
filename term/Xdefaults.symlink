@@ -79,9 +79,9 @@ URxvt.secondaryScroll: true
 URxvt.font: xft:DejaVu Sans Mono for Powerline-8:antialias=true:hinting=true
 ! URxvt.font: "xft:Hack:size=9:antialias=true:hinting=true"
 ! URxvt.font: xft:termsyn:pixelsize=12
-URxvt.perl-ext-common: default,matcher
+! URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher: google-chrome-stable
-URxvt.matcher.button: 1
+URxvt.matcher.button: 2
 URxvt.tabbed.saveLines: 1000
 URxvt.tabbed.scrollBar: false
 URxvt.tabbed.tabbar-fg: 3
