@@ -257,10 +257,10 @@ au BufNewFile,BufRead *.py
     \ set tabstop=4
     \ shiftwidth=4
     \ softtabstop=4
-    \ textwidth=79
     \ expandtab
     \ autoindent
     \ fileformat=unix
+"\ textwidth=79
 
 let g:ycm_python_binary_path = '/usr/bin/python2'
 
@@ -278,3 +278,11 @@ EOF
 
 "Python flake8 on save
 autocmd BufWritePost *.py call Flake8()
+
+" Scroll to middle of text
+set so=999
+
+" Slime
+let g:slime_target="tmux"
+let g:slime_paste_file="$HOME/.slime_paste"
+let g:slime_python_ipython = 1
