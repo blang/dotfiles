@@ -137,7 +137,7 @@ set clipboard=unnamedplus " Yank into global clipboard (also between instances)
 " Tabs
 "map <C-t> <esc>:tabe<SPACE>
 "map <S-Enter> <esc>:tabnew<CR>
-map <C-n> <esc>:tabn<CR>
+" map <C-n> <esc>:tabn<CR>
 
 
 " Package manager
@@ -149,14 +149,17 @@ au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
+"au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>j <Plug>(go-def)
+au FileType go map <Leader>d :GoDeclsDir<CR>
 "au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 "au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 "au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
-au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go map <Leader>s :GoSameIds<CR>
+au FileType go map <Leader>f :'<,'>GoFreevars<CR>
 
 au FileType go nmap <Leader>i <Plug>(go-info)
 
@@ -167,33 +170,6 @@ map <C-t> :TagbarToggle<CR>
 
 "Use goimports
 let g:go_fmt_command = "goimports"
-
-
-" Nerdtree
-autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-map <C-p> :NERDTreeToggle<CR>
-" Auto close nerdtree as last window
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" Fuzzyfind
-
-nmap <silent> <leader>p :CtrlPBuffer<cr>
-nmap <silent> <leader>o :CtrlP<cr>
-let g:ctrlp_map=''
-let g:ctrlp_dotfiles=1
-let g:ctrlp_working_path_mode = 'ra'
-
-" CtrlP ignore patterns
-let g:ctrlp_custom_ignore = {
-            \ 'dir': '\.git$\|node_modules$\|\.hg$\|\.svn$',
-            \ 'file': '\.exe$\|\.so$'
-            \ }
-
-" search the nearest ancestor that contains .git, .hg, .svn
-let g:ctrlp_working_path_mode = 2 
-
 
 " Vim Go Tagbar
 let g:tagbar_type_go = {
@@ -224,6 +200,53 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
+" Disable errors on gofmt, syntastic will do that
+" let g:go_fmt_fail_silently = 0
+
+" No need to save go files before commands
+set autowrite
+
+" Cycle errors
+autocmd FileType go map <C-n> :cnext<CR>
+autocmd FileType go map <C-m> :cprevious<CR>
+autocmd FileType go nnoremap <leader>a :cclose<CR>
+
+" Meta lint
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+
+
+let g:go_list_type = "quickfix"
+"""""""""""" End GO
+
+" Nerdtree
+autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+map <C-p> :NERDTreeToggle<CR>
+" Auto close nerdtree as last window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Fuzzyfind
+
+nmap <silent> <leader>p :CtrlPBuffer<cr>
+nmap <silent> <leader>o :CtrlP<cr>
+let g:ctrlp_map=''
+let g:ctrlp_dotfiles=1
+let g:ctrlp_working_path_mode = 'ra'
+
+" CtrlP ignore patterns
+let g:ctrlp_custom_ignore = {
+            \ 'dir': '\.git$\|node_modules$\|\.hg$\|\.svn$',
+            \ 'file': '\.exe$\|\.so$'
+            \ }
+
+" search the nearest ancestor that contains .git, .hg, .svn
+let g:ctrlp_working_path_mode = 2 
+
+
+
 " Vim Airline
 " Status always on
 set laststatus=2
@@ -238,8 +261,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" Disable errors on gofmt, syntastic will do that
-let g:go_fmt_fail_silently = 0
 
 " Use ; as :
 "nnoremap ; :
@@ -263,6 +284,9 @@ au BufNewFile,BufRead *.py
 "\ textwidth=79
 
 let g:ycm_python_binary_path = '/usr/bin/python2'
+
+" Disable ycm for most
+let g:ycm_filetype_whitelist = { 'python': 1 }
 
 let python_highlight_all=1
 
