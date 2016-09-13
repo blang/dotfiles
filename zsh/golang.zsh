@@ -1,5 +1,5 @@
 # GOLang
-export GOROOT=$HOME/goruntime/go
+export GOROOT=$HOME/goruntime/go_latest
 export GOPATH=$HOME/goprojects
 export PATH=$GOROOT/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
