@@ -70,7 +70,7 @@ bindsym $m+w layout tabbed
 bindsym $m+e layout default
 
 # change focus between tiling / floating windows
-bindsym $m+space focus mode_toggle
+#bindsym $m+space focus mode_toggle
 
 # toggle tiling / floating
 bindsym $m+Shift+space floating toggle
@@ -187,13 +187,15 @@ bindsym $m+F6 exec "$HOME/apps/sublime_text_3/sublime_text"
 #bindsym $m+F7 exec "$HOME/apps/idea-IC-135.1289/bin/idea.sh"
 
 bindsym $m+Print exec "scrot '%Y-%m-%d_%H-%M-%S_$wx$h_scrot.png' -e 'mv $f /home/ben/screenshots/'"
+bindsym $m+space exec "copyq menu"
 
 # screen lock
 bindsym $m+F10 exec i3lock -i $HOME/.ben/lockscreen/screen.png -p win -u
 
 ## Autostart
 # Urxvt Daemon
-exec --no-startup-id "urxvtd --quiet --opendisplay --fork"
+#exec --no-startup-id "urxvtd --quiet --opendisplay --fork"
+exec --no-startup-id "copyq"
 # mute sound by default
 exec --no-startup-id "amixer sset Master,0 0"
 # Set wallpaper: feh --bg-scale ~/.i3/wallpaper.jpg && chmod +x ~/.fehbg
