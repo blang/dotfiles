@@ -1,0 +1,37 @@
+conky.config = {
+	background = false,
+	out_to_console = true,
+	out_to_x = false,
+	update_interval = 3,
+	total_run_times = 0,
+	short_units = true,
+	pad_percents = 3,
+
+	override_utf8_locale = true,
+
+};
+
+conky.text = [[
+,[
+#Thymer
+{"full_text": " Thymer ${exec tail -n 1 /home/ben/.thymerlog} ", "color":"\#268BD2"},
+{"full_text": " Doros: ${exec cat /home/ben/.thymerlog | grep "Stopped" | wc -l}/${exec cat /home/ben/.thymerlog | grep "Interrupted" | wc -l}", "color":"\#268BD2"},
+#Sound
+{"full_text": " SND ${exec amixer get Master | tail -n 1 | grep -o "\[.*%\]"} ", "color":"\#268BD2"},
+#Network Up and down
+{"full_text": "[${upspeed wlp2s0}/${downspeed wlp2s0}] ", "color":"\#ff0000"},
+#Memory
+{"full_text": " RAM [$membar] $memperc% ", "color":"\#B58900"},
+# HDDs
+{"full_text": " FS / [${fs_bar /}] ${fs_used /} / ${fs_size /}% ", "color":"\#4BB521"},
+{"full_text": " FS /tmp [${fs_bar /tmp}] ${fs_used /tmp} / ${fs_size /tmp}% ", "color":"\#B757DE"},
+#BAT
+{"full_text": "BAT [${battery_short BAT0} ${battery_bar 8,10 BAT0}] ", "color":"\#6F3BFF"},
+#CPU
+{"full_text": " CPU [$cpubar][${freq_g 0}Ghz ${freq_g 1}Ghz ${freq_g 2}Ghz ${freq_g 3}Ghz ${hwmon 2 temp 1}°C RAM: ${hwmon 2 temp 3}°C  ${cpu cpu0}% ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}%", "color":"\#00A9B5"},
+#Network status
+{"full_text": "${if_up enp3s0}ETH [${addrs enp3s0}]$endif ", "color":"\#ff00f3"},
+#Time
+{"full_text": " [${time %a %d %b} ${time %H:%M}] ","color": "\#2fdc57"}
+]
+]];
