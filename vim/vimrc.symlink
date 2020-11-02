@@ -212,9 +212,9 @@ autocmd FileType go map <C-m> :cprevious<CR>
 autocmd FileType go nnoremap <leader>a :cclose<CR>
 
 " Meta lint
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_enabled = ['vet', 'errcheck'] " 'golint',
 let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_autosave_enabled = ['vet', 'errcheck' ] "'golint'
 
 
 let g:go_list_type = "quickfix"
@@ -313,3 +313,6 @@ let g:slime_python_ipython = 1
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
+
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
