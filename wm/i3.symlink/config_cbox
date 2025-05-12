@@ -1,0 +1,236 @@
+# Basic config from bl1nk - http://kuchen.io
+
+#Bind WinKey (Mod4) or Alt (Mod1)
+#set $m Mod4
+set $m Mod1
+font "-*-termsyn-medium-r-*-*-14-*-*-*-*-*-*-*"
+
+# class                 border  backgr  text    indicator
+client.focused          #ffaf5f #ffaf5f #ffffff #ffaf5f
+client.focused_inactive #ffaf5f #202020 #808080 #404040
+client.unfocused        #303030 #202020 #808080 #404040
+client.urgent           #AC4142 #AC4142 #ffffff
+client.background       #080808
+gaps inner 15
+gaps outer -5
+# gaps outer all set 0
+smart_gaps on
+smart_borders no_gaps
+# gaps outer 10
+# gaps outer all set 0
+# gaps horizontal 10
+# gaps vertical 10
+bar {
+    font -misc-termsyn.icons-medium-r-normal-*-10-*-*-100-*-*-iso8859-1
+    mode dock
+    # mode invisible
+    tray_output primary
+    Modifier Mod1
+    position top
+    status_command ~/.config/i3/conky
+    workspace_buttons yes
+    colors {
+	background #080808
+	statusline #808080
+	separator #303030
+	focused_workspace  #597bc5 #080808 #ffffff
+	active_workspace   #040404 #080808 #ffffff
+	inactive_workspace #202020 #080808 #808080
+	urgent_workspace   #ac4142 #080808 #ffffff
+    # modifier Mod1
+    }
+}
+
+
+# Use Mouse+$m to drag floating windows to their wanted position
+floating_modifier $m
+
+# start a terminal
+# bindsym $m+Return exec i3-sensible-terminal
+#bindsym $m+Return exec --no-startup-id "urxvtc -tr"
+#bindsym $m+Return exec --no-startup-id "termite"
+# Use LIBGL_ALWAYS_SOFTWARE=1 to enable software rendering
+bindsym $m+Return exec --no-startup-id "alacritty"
+
+# kill focused window
+bindsym $m+Q kill
+
+
+# change focus
+bindsym $m+h focus left
+bindsym $m+j focus down
+bindsym $m+k focus up
+bindsym $m+l focus right
+
+# move focused window
+bindsym $m+Shift+H move left
+bindsym $m+Shift+J move down
+bindsym $m+Shift+K move up
+bindsym $m+Shift+L move right
+
+# split in horizontal orientation
+bindsym $m+o split h
+
+# split in vertical orientation
+bindsym $m+u split v
+
+# enter fullscreen mode for the focused container
+bindsym $m+f fullscreen
+
+# change container layout
+bindsym $m+s layout stacking
+bindsym $m+w layout tabbed
+bindsym $m+e layout default
+
+# change focus between tiling / floating windows
+#bindsym $m+space focus mode_toggle
+bindsym $m+space exec "copyq menu"
+
+# toggle tiling / floating
+bindsym $m+Shift+space floating toggle
+
+# focus the parent container
+bindsym $m+a focus parent
+
+# focus the child container
+bindsym $m+d focus child
+
+# switch to previous workspace by pressing the current workspace key
+workspace_auto_back_and_forth yes
+
+default_orientation horizontal
+workspace_layout default
+
+# switch to workspace
+bindsym $m+1 workspace 1
+bindsym $m+2 workspace 2
+bindsym $m+3 workspace 3
+bindsym $m+4 workspace 4
+bindsym $m+5 workspace 5
+bindsym $m+6 workspace 6
+bindsym $m+7 workspace 7
+bindsym $m+8 workspace 8
+bindsym $m+9 workspace 9
+bindsym $m+0 workspace 10
+
+# move focused container to workspace
+bindsym $m+Shift+1 move container to workspace 1
+bindsym $m+Shift+2 move container to workspace 2
+bindsym $m+Shift+3 move container to workspace 3
+bindsym $m+Shift+4 move container to workspace 4
+bindsym $m+Shift+5 move container to workspace 5
+bindsym $m+Shift+6 move container to workspace 6
+bindsym $m+Shift+7 move container to workspace 7
+bindsym $m+Shift+8 move container to workspace 8
+bindsym $m+Shift+9 move container to workspace 9
+bindsym $m+Shift+0 move container to workspace 10
+
+# multimonitor stuff
+#bindsym $m+comma move container to output left
+#bindsym $m+period move container to output right
+#bindsym $m+Shift+comma move workspace to output left
+#bindsym $m+Shift+period move workspace to output right
+
+mode "(E)xit, (R)eboot, (P)oweroff" {
+    bindsym e exit
+    bindsym r exec sudo  reboot
+    bindsym p exec sudo  poweroff
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $m+Shift+E mode "(E)xit, (R)eboot, (P)oweroff"
+
+# reload the configuration file
+bindsym $m+Shift+C reload
+
+# restart i3 inplace
+# bindsym $m+Shift+R restart
+
+mode "resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    bindsym 116 resize grow height 10 px or 10 ppt
+    bindsym 111 resize shrink height 10 px or 10 ppt
+    bindsym 114 resize grow width 10 px or 10 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $m+r mode "resize"
+mode "resize_fine" {
+    bindsym h resize shrink width 5 px
+    bindsym j resize grow height 5 px
+    bindsym k resize shrink height 5 px
+    bindsym l resize grow width 5 px
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $m+shift+r mode "resize_fine"
+
+new_float pixel 1
+new_window pixel 1
+hide_edge_borders none
+force_display_urgency_hint 1000 ms
+
+for_window [class="(feh|MPlayer|Android Virtual Device Manager|emulator64-arm)"] floating enable
+for_window [class="Skype"] floating enable
+
+# multimonitor
+bindsym $m+comma move container to output left
+bindsym $m+period move container to output right
+bindsym $m+Shift+comma move workspace to output left
+bindsym $m+Shift+period move workspace to output right
+
+# thinkpad function keys
+bind 123 exec "amixer sset Master,0 5+"
+bind 122 exec "amixer sset Master,0 5-"
+bind 124 exec "amixer sset Master,0 0"
+
+# Scratchpad bindings
+bindsym $m+Shift+equal move scratchpad
+bindsym $m+Shift+Return scratchpad show
+
+# Program bindings
+bindsym $m+F5 exec "google-chrome-stable --ssl-version-min=tls1 --high-dpi-support=1 --force-device-scale-factor=1"
+bindsym $m+Shift+F5 exec "google-chrome-stable --profile-directory=/tmp/chromeclean"
+bindsym $m+F6 exec --no-startup-id "keepassxc"
+
+# screen lock
+#bindsym $m+F10 exec i3lock -i $HOME/w/win.png -p win -u
+
+## Autostart
+# Urxvt Daemon
+#exec --no-startup-id "urxvtd --quiet --opendisplay --fork"
+exec --no-startup-id "copyq"
+exec --no-startup-id "cbatticon"
+exec --no-startup-id "nm-applet --no-agent"
+exec --no-startup-id "picom -CGb"
+exec --no-startup-id "autorandr -c"
+# Vbox tools
+exec --no-startup-id "VBoxClient-all"
+# mute sound by default
+#exec --no-startup-id "amixer sset Master,0 0"
+# set mouse acceleration
+#!exec --no-startup-id "xset m 0.00001 0"
+# Set wallpaper: feh --bg-scale ~/.i3/wallpaper.jpg && chmod +x ~/.fehbg
+exec --no-startup-id "~/.fehbg"
+# Start network
+#exec --no-startup-id "/usr/bin/wicd-client -t"
+exec --no-startup-id "setxkbmap us -option terminate:ctrl_alt_bksp"
+# Disable flowcontrol to work with vim
+exec --no-startup-id "stty -ixon"
+# Dropbox
+#exec --no-startup-id "/home/ben/.dropbox-dist/dropboxd"
+#exec --no-startup-id "/home/ben/bin/thirdmonitor.sh"
+
+for_window [class="^.*"] border pixel 5
+#gaps inner 5
+#gaps outer 5
+# smart_gaps on
+#smart_borders on
